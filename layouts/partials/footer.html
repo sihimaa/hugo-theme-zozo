@@ -1,7 +1,9 @@
 <footer class="footer">
     <div class="powered_by">
-        <a href="https://varkai.com">Designed by VarKai,</a>
-        <a href="http://www.gohugo.io/">Proudly published with Hugo</a>
+        <a href="https://varkai.com">Theme - zozo ｜ </a>
+        <a href="http://www.gohugo.io/">Powered by Hugo </a>
+        <a href=" {{ .Site.Params.licenseURL }} " > 
+            {{ if isset .Site.Params "license" }} ｜ {{ .Site.Params.license }}{{ end }} </a>
     </div>
 
     <div class="footer_slogan">

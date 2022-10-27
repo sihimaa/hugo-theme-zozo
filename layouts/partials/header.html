@@ -9,6 +9,7 @@
         </div>
         <div class="description">
             <p class="sub_title">{{ with .Site.Params.subTitle }}{{ . }}{{ else }}{{ end }}</p>
+            <p class="sub_title"> {{ with .Site.Params.subTitleP2 }}{{ . }}{{ else }}{{ end }} </p>
             <div class="my_socials">
                 {{ range $key, $val := .Site.Social }}
                 {{ if ne $val "" }}
