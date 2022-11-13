@@ -11,10 +11,12 @@
                         <h2><a href='{{ .RelPermalink }}'>{{ .Title }}</a></h2>
                         <span class="date">{{ .Date.Format "2006.01.02" }}</span>
                     </div>
+                    {{ if and (gt .WordCount 400 ) (.Params.toc) }}
                     <details id="toc">
                         <summary id="tocTitle">{{ i18n "toc" . }}</summary>
                         {{.TableOfContents}}
                     </details>
+                    {{ end }}
                     <div class="post_content markdown">{{ .Content }}</div>
                     <div class="post_footer">
                         {{ with .Params.tags }}
