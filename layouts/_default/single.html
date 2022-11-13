@@ -11,6 +11,10 @@
                         <h2><a href='{{ .RelPermalink }}'>{{ .Title }}</a></h2>
                         <span class="date">{{ .Date.Format "2006.01.02" }}</span>
                     </div>
+                    <details id="toc">
+                        <summary id="tocTitle">{{ i18n "toc" . }}</summary>
+                        {{.TableOfContents}}
+                    </details>
                     <div class="post_content markdown">{{ .Content }}</div>
                     <div class="post_footer">
                         {{ with .Params.tags }}

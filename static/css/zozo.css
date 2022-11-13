@@ -222,7 +222,6 @@ hr {
   color: #1f1f1f;
   font-size: 1.5rem;
   line-height: 28px;
-  font-weight: 200;
 }
 
 .post .post_title span {
@@ -245,7 +244,7 @@ hr {
 
 .post .post_content {
   word-break: normal;
-  margin-top: 20px;
+  margin-top: 15px;
 }
 
 .post .post_content p {
@@ -341,6 +340,7 @@ hr {
   font-size: 12px;
   padding: 40px 0;
   margin: 0 auto;
+  color: #a6a6a6;
 }
 
 .footer a {
@@ -367,13 +367,12 @@ hr {
 }
 
 .footer .footer_slogan {
-  padding-top: 10px;
+  padding-top: 5px;
   padding-bottom: 10px;
-  color: #3e3d3d;
-  font-size: 16px;
+  color: #9f9f9f;
+  font-size: 13px;
   letter-spacing: 1px;
-  font-weight: 100;
-
+  font-weight: 400;
 }
 
 /*for archive*/
@@ -469,19 +468,19 @@ hr {
 }
 
 .markdown h1 {
-  font-size: 1.35em;
+  font-size: 1.80em;
 }
 
 .markdown h2 {
-  font-size: 1.25em;
+  font-size: 1.50em;
 }
 
 .markdown h3 {
-  font-size: 1.15em;
+  font-size: 1.30em;
 }
 
 .markdown h4 {
-  font-size: 1.1em;
+  font-size: 1.20em;
 }
 
 .markdown pre,
@@ -570,8 +569,8 @@ hr {
 .markdown b,
 .markdown em {
   padding: 1px 2px;
-  background-color: #fcfcf0;
-  font-weight: normal;
+  /* background-color: #fcfcf0; */
+  font-weight: bolder;;
 }
 
 .markdown .fancybox {
@@ -628,6 +627,34 @@ a.back_to_top:hover {
 a.back_to_top:hover span {
   color: #555555;
 }
+
+/* TOC  */
+#toc {
+  margin-left: 1em;
+  margin-right: 2em;
+  margin-top: 1em;
+}
+
+#TableOfContents ul{
+  margin-top: 2px;
+}
+
+#TableOfContents ul li {
+  /* display: none;
+  visibility: hidden; */
+  list-style-type: none;
+}
+
+details[open] summary ~ * {
+  animation: sweep .5s ease-in-out;
+}
+
+@keyframes sweep {
+  0%    {opacity: 0; margin-left: -10px}
+  100%  {opacity: 1; margin-left: 0px}
+}
+
+/* animation: https://stackoverflow.com/questions/38213329/how-to-add-css3-transition-with-html5-details-summary-tag-reveal */
 
 @media print, screen and (max-width: 680px) {
   .nav_container {
