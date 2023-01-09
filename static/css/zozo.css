@@ -78,6 +78,7 @@ hr {
   width: 720px;
   height: auto;
   margin: 0 auto;
+  padding-bottom: 40px;
 }
 
 .list_with_title .container {
@@ -468,7 +469,7 @@ hr {
 }
 
 .markdown h1 {
-  font-size: 1.80em;
+  font-size: 1.50em;
 }
 
 .markdown h2 {
