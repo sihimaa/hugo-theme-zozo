@@ -5,12 +5,21 @@
         {{ partial "nav.html" . }}
         {{ partial "header.html" . }}
         <div class="content">
+            <!-- Language selector -->
+            <div class="language-selector">
+                <span class="lang-link" data-lang="en" onclick="filterByLanguage('en')">EN</span>
+                <span class="lang-separator">|</span>
+                <span class="lang-link" data-lang="zh" onclick="filterByLanguage('zh')">中文</span>
+            </div>
+
             <div class="list_with_title">
                 {{ range .Data.Pages.GroupByDate "2006" }}
                 <div class="listing_title">{{ .Key }}</div>
                 <div class="listing">
                     {{ range .Pages }}
-                    <div class="listing_item">
+                    {{- $filename := .File.LogicalName }}
+                    {{- $lang := cond (strings.HasSuffix $filename ".en.md") "en" (cond (strings.HasSuffix $filename ".zh.md") "zh" "en") }}
+                    <div class="listing_item" data-lang="{{ $lang }}">
                         <div class="listing_post">
                             <a href="{{ .RelPermalink }}">{{ .Title }}</a>
                             <div class="post_time"><span class="date">{{ .Date.Format "01-02" }}</span></div>
@@ -24,6 +33,76 @@
         </div>
         <a id="back_to_top" href="#" class="back_to_top"><i class="ri-arrow-up-s-line"></i></a>
     </div>
+
+    <!-- Language filtering script -->
+    <script>
+    let currentLang = null;
+
+    function filterByLanguage(lang) {
+        const posts = document.querySelectorAll('.listing_item');
+        const langLinks = document.querySelectorAll('.lang-link');
+        
+        // If clicking the same language again, show all
+        if (currentLang === lang) {
+            posts.forEach(post => post.style.display = '');
+            langLinks.forEach(link => link.classList.remove('active'));
+            currentLang = null;
+            return;
+        }
+
+        // Otherwise, filter by selected language
+        posts.forEach(post => {
+            if (post.getAttribute('data-lang') === lang) {
+                post.style.display = '';
+            } else {
+                post.style.display = 'none';
+            }
+        });
+
+        // Update active state
+        langLinks.forEach(link => {
+            if (link.getAttribute('data-lang') === lang) {
+                link.classList.add('active');
+            } else {
+                link.classList.remove('active');
+            }
+        });
+        
+        currentLang = lang;
+    }
+    </script>
+
+    <!-- Custom styles -->
+    <style>
+    .language-selector {
+        text-align: right;
+        margin-bottom: 20px;
+        font-size: 14px;
+        color: #161209;
+    }
+
+    .lang-link {
+        cursor: pointer;
+        padding: 0 4px;
+        opacity: 0.7;
+        transition: opacity 0.2s;
+    }
+
+    .lang-link:hover {
+        opacity: 1;
+    }
+
+    .lang-link.active {
+        opacity: 1;
+        font-weight: 500;
+    }
+
+    .lang-separator {
+        color: #e0e0e0;
+        padding: 0 2px;
+    }
+    </style>
+
     {{ partial "footer.html" . }}
     {{ partial "js.html" . }}
 </body>
