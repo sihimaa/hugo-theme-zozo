@@ -631,7 +631,6 @@ a.back_to_top:hover span {
 
 /* TOC  */
 #toc {
-  margin-left: 1em;
   margin-right: 2em;
   margin-top: 1em;
 }
@@ -730,6 +729,35 @@ details[open] summary ~ * {
   .post_footer {
     padding-bottom: 30px;
   }
+}
+
+.language-selector {
+  text-align: right;
+  /* margin-bottom: 20px; */
+  font-size: 14px;
+  color: #161209;
+  float: right;
+}
+
+.lang-link {
+  cursor: pointer;
+  padding: 0 4px;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.lang-link:hover {
+  opacity: 1;
+}
+
+.lang-link.active {
+  opacity: 1;
+  font-weight: 500;
+}
+
+.lang-separator {
+  color: #e0e0e0;
+  padding: 0 2px;
 }
 
 /*animation starts*/
