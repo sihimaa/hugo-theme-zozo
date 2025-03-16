@@ -421,6 +421,34 @@ hr {
   color: #1f1f1f;
 }
 
+.language-selector {
+  text-align: right;
+  font-size: 14px;
+  color: #161209;
+  float: right;
+}
+
+.lang-link {
+  cursor: pointer;
+  padding: 0 4px;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.lang-link:hover {
+  opacity: 1;
+}
+
+.lang-link.active {
+  opacity: 1;
+  font-weight: 500;
+}
+
+.lang-separator {
+  color: #e0e0e0;
+  padding: 0 2px;
+}
+
 .pagination {
   padding: 30px 0 60px 0;
   border-bottom: 1px solid #f2f2f2;
@@ -729,35 +757,6 @@ details[open] summary ~ * {
   .post_footer {
     padding-bottom: 30px;
   }
-}
-
-.language-selector {
-  text-align: right;
-  /* margin-bottom: 20px; */
-  font-size: 14px;
-  color: #161209;
-  float: right;
-}
-
-.lang-link {
-  cursor: pointer;
-  padding: 0 4px;
-  opacity: 0.7;
-  transition: opacity 0.2s;
-}
-
-.lang-link:hover {
-  opacity: 1;
-}
-
-.lang-link.active {
-  opacity: 1;
-  font-weight: 500;
-}
-
-.lang-separator {
-  color: #e0e0e0;
-  padding: 0 2px;
 }
 
 /*animation starts*/
