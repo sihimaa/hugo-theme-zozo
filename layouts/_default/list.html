@@ -20,7 +20,7 @@
                     {{- $filename := .File.LogicalName }}
                     {{- $lang := cond (strings.HasSuffix $filename ".en.md") "en" (cond (strings.HasSuffix $filename ".zh.md") "zh" "en") }}
                     <div class="listing_item" data-lang="{{ $lang }}">
-                        <div class="listing_post">
+                        <div class="listing_post animate__animated animate__fadeInDown">
                             <a href="{{ .RelPermalink }}">{{ .Title }}</a>
                             <div class="post_time"><span class="date">{{ .Date.Format "01-02" }}</span></div>
                         </div>
